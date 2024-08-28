@@ -1,4 +1,4 @@
-# Django TODO App
+# Django project:- TODO App
 
 A simple TODO application built with Django for beginners. This project demonstrates basic CRUD operations, form handling, and integration with Bootstrap.
 
