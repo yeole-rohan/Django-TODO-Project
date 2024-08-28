@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO List</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
 </head>
 <body>
-    <h2>TODO List</h2>
-    {% for todo in todos %}
-        <h3>{{ todo.title }}</h3>
-        <p>{{ todo.description }}</p>
-        <p>Completed: {{ todo.completed }}</p>
-        {% if not todo.completed %}<a href="{% url 'todo:todo_update_cbv' todo.pk %}">Edit (CBV)</a>  <!-- CBV Edit Link -->{% endif %}
-        <hr>
-    {% empty %}
-        <p>No TODO items yet!</p>
-    {% endfor %}
+   <div class="container mt-5">
+      <h2 class="mb-4">TODO List</h2>
+      <div id="todo-container">
+         {% for todo in todos %}
+            <div class="card mb-3 draggable" draggable="true" id="todo-{{ todo.pk }}">
+               <div class="card-body">
+                     <h5 class="card-title">{{ todo.title }}</h5>
+                     <p class="card-text">{{ todo.description }}</p>
+                     <p class="card-text"><small class="text-muted">Completed: {{ todo.completed }}</small></p>
+                     {% if not todo.completed %}<a href="{% url 'todo:todo_update_cbv' todo.pk %}" class="btn btn-warning">Edit (CBV)</a>  <!-- CBV Edit Link -->{% endif %}
+               </div>
+            </div>
+         {% empty %}
+            <p>No TODO items yet!</p>
+         {% endfor %}
+      </div>
+   </div>
 </body>
 </html>

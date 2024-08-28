@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create TODO</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
 </head>
 <body>
-    <h2>Create a New TODO Item</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Task</button>
-    </form>
-</body>
+   <div class="container mt-5">
+       <h2>Create or Update a TODO Item</h2>
+       <form method="post" class="mt-3">
+           {% csrf_token %}
+           {% bootstrap_form form %}
+           <button type="submit" class="btn btn-primary mt-3">Save Task</button>
+       </form>
+   </div>
+{% bootstrap_javascript %}
+</body>>
 </html>
