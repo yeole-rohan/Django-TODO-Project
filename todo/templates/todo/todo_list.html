@@ -11,6 +11,7 @@
         <h3>{{ todo.title }}</h3>
         <p>{{ todo.description }}</p>
         <p>Completed: {{ todo.completed }}</p>
+        {% if not todo.completed %}<a href="{% url 'todo:todo_update_cbv' todo.pk %}">Edit (CBV)</a>  <!-- CBV Edit Link -->{% endif %}
         <hr>
     {% empty %}
         <p>No TODO items yet!</p>
