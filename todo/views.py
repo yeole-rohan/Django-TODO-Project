@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import TodoItemForm
+from .models import TodoItem
 
 def todo_create(request):
     if request.method == 'POST':
@@ -11,3 +12,8 @@ def todo_create(request):
         form = TodoItemForm()
     
     return render(request, 'todo/todo_form.html', {'form': form})
+
+
+def todo_list(request):
+    todos = TodoItem.objects.all()  # Fetch all TODO items from the database
+    return render(request, 'todo/todo_list.html', {'todos': todos})

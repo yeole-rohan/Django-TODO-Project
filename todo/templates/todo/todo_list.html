@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+</head>
+<body>
+    <h2>TODO List</h2>
+    {% for todo in todos %}
+        <h3>{{ todo.title }}</h3>
+        <p>{{ todo.description }}</p>
+        <p>Completed: {{ todo.completed }}</p>
+        <hr>
+    {% empty %}
+        <p>No TODO items yet!</p>
+    {% endfor %}
+</body>
+</html>
